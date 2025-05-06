@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deviation Report Form (DRF) - Mahoney-Egypt</title>
+    <form method="POST" action="https://formspree.io/f/mnnddyab">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for required fields - add red asterisk */
+        label.required::after {
+            content: '*';
+            color: red;
+            margin-left: 0.25rem; /* Equivalent to ml-1 in Tailwind */
+        }
+        /* Custom scrollbar for textareas (optional enhancement) */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Light grey track */
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #888; /* Darker grey thumb */
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Even darker grey on hover */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg">
+        <div class="mb-8 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Deviation Report Form (DRF)</h1>
+            <p class="text-gray-600 mt-1">Mahoney-Egypt - Quality Assurance</p>
+            <hr class="mt-4">
+            <p class="text-sm text-gray-500 mt-2">DRF Number: [To be assigned by QA]</p>
+        </div>
+
+        <form action="#" method="POST">
+
+            <fieldset class="mb-6 border border-gray-300 p-4 rounded-md">
+                <legend class="text-lg font-semibold text-gray-700 px-2">Deviation Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="deviation_date" class="block text-sm font-medium text-gray-700 required">Date of Deviation</label>
+                        <input type="date" id="deviation_date" name="deviation_date" required
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="deviation_time" class="block text-sm font-medium text-gray-700 required">Time of Deviation</label>
+                        <input type="time" id="deviation_time" name="deviation_time" required
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="location" class="block text-sm font-medium text-gray-700 required">Location / Department</label>
+                        <input type="text" id="location" name="location" required placeholder="e.g., Maritime Operations, Warehouse B"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <div class="md:col-span-2 mt-4 pt-4 border-t border-gray-200">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Types of Deviation</label>
+                        <p class="text-xs text-gray-500 mb-3">Select all applicable types.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="non_conformance" name="deviation_type[]" type="checkbox" value="Non-Conformance" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="non_conformance" class="font-medium text-gray-700">Non-Conformance</label>
+                                    <p class="text-gray-500">Failure to meet specified requirements (service, process, or system).</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="incident" name="deviation_type[]" type="checkbox" value="Incident" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="incident" class="font-medium text-gray-700">Incidents</label>
+                                    <p class="text-gray-500">An unplanned event that could have resulted, or did result, in harm or loss (safety, environmental, security).</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="near_miss" name="deviation_type[]" type="checkbox" value="Near Miss" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="near_miss" class="font-medium text-gray-700">Near Misses</label>
+                                    <p class="text-gray-500">An incident that occurred but did not result in injury, illness, or damage – but had the potential to do so.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="customer_complain" name="deviation_type[]" type="checkbox" value="Customer Complain" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="customer_complain" class="font-medium text-gray-700">Customer Complain</label>
+                                    <p class="text-gray-500">Expression of dissatisfaction received from a customer related to services.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="internal_audit" name="deviation_type[]" type="checkbox" value="Internal Audit Finding" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="internal_audit" class="font-medium text-gray-700">Internal Audit Finding</label>
+                                    <p class="text-gray-500">A non-conformance identified during an internal audit process.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="external_audit" name="deviation_type[]" type="checkbox" value="External Audit Finding" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="external_audit" class="font-medium text-gray-700">External Audit Finding</label>
+                                    <p class="text-gray-500">A non-conformance identified during an audit by an external party (customer, regulatory body, certification body).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="description" class="block text-sm font-medium text-gray-700 required">Description of Deviation</label>
+                        <textarea id="description" name="description" rows="4" required placeholder="Clearly describe what deviated from the expected standard, procedure, or process. Include specific details."
+                                  class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                         <p class="mt-1 text-xs text-gray-500">Mention the specific procedure, process, or standard that was not met.</p>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="immediate_actions" class="block text-sm font-medium text-gray-700">Immediate Actions Taken (if any)</label>
+                        <textarea id="immediate_actions" name="immediate_actions" rows="3" placeholder="Describe any steps taken at the time of discovery to contain or correct the situation."
+                                  class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="potential_impact" class="block text-sm font-medium text-gray-700">Potential Impact (if known)</label>
+                        <textarea id="potential_impact" name="potential_impact" rows="3" placeholder="Describe any perceived or known consequences (e.g., on quality, safety, efficiency, compliance, customer)."
+                                  class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="mb-6 border border-gray-300 p-4 rounded-md">
+                <legend class="text-lg font-semibold text-gray-700 px-2">Reporter Information</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="reporter_name" class="block text-sm font-medium text-gray-700 required">Name of Reporter</label>
+                        <input type="text" id="reporter_name" name="reporter_name" required
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="reporter_id" class="block text-sm font-medium text-gray-700">Employee ID</label>
+                        <input type="text" id="reporter_id" name="reporter_id"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="mb-6 border border-gray-300 p-4 rounded-md bg-gray-50">
+                <legend class="text-lg font-semibold text-gray-700 px-2">Initial Assessment (Supervisor/Dept. Head)</legend>
+                 <p class="text-xs text-gray-500 mb-4 px-2">To be completed by the Supervisor/Department Head.</p>
+                <div class="grid grid-cols-1 gap-4 mt-4">
+                    <div>
+                        <label for="supervisor_assessment" class="block text-sm font-medium text-gray-700">Assessment Notes & Actions Taken</label>
+                        <textarea id="supervisor_assessment" name="supervisor_assessment" rows="4" placeholder="Record initial findings, severity assessment, and any immediate corrective actions taken at the departmental level."
+                                  class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                    </div>
+                     <div>
+                        <label for="supervisor_name" class="block text-sm font-medium text-gray-700">Assessed By (Supervisor/Dept. Head)</label>
+                        <input type="text" id="supervisor_name" name="supervisor_name"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                     <div>
+                        <label for="supervisor_assessment_date" class="block text-sm font-medium text-gray-700">Assessment Date</label>
+                        <input type="date" id="supervisor_assessment_date" name="supervisor_assessment_date"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+            </fieldset>
+
+             <fieldset class="mb-6 border border-dashed border-gray-400 p-4 rounded-md bg-indigo-50">
+                <legend class="text-lg font-semibold text-indigo-700 px-2">Quality Assurance Use Only</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                     <div>
+                        <label for="qa_received_date" class="block text-sm font-medium text-gray-700">Date Received by QA</label>
+                        <input type="date" id="qa_received_date" name="qa_received_date" readonly disabled
+                               class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-300 rounded-md shadow-sm sm:text-sm cursor-not-allowed">
+                    </div>
+                    <div>
+                        <label for="deviation_category" class="block text-sm font-medium text-gray-700">Deviation Category</label>
+                        <select id="deviation_category" name="deviation_category" disabled
+                                class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm cursor-not-allowed">
+                            <option value="">[Select Category]</option>
+                            <option value="Minor">Minor</option>
+                            <option value="Major">Major</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="qa_decision" class="block text-sm font-medium text-gray-700">Decision on Further Action</label>
+                        <textarea id="qa_decision" name="qa_decision" rows="3" readonly disabled placeholder="e.g., Close, Monitor Trend, Initiate NCR/CAPA..."
+                                  class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-300 rounded-md shadow-sm sm:text-sm cursor-not-allowed"></textarea>
+                    </div>
+                     <div>
+                        <label for="qa_assigned" class="block text-sm font-medium text-gray-700">QA Assigned</label>
+                        <input type="text" id="qa_assigned" name="qa_assigned" readonly disabled
+                               class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-300 rounded-md shadow-sm sm:text-sm cursor-not-allowed">
+                    </div>
+                     <div>
+                        <label for="qa_decision_date" class="block text-sm font-medium text-gray-700">QA Decision Date</label>
+                        <input type="date" id="qa_decision_date" name="qa_decision_date" readonly disabled
+                               class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-300 rounded-md shadow-sm sm:text-sm cursor-not-allowed">
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="mt-8 flex justify-end space-x-3">
+                <button type="button" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    Cancel
+                </button>
+                 <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Submit Deviation Report
+                </button>
+            </div>
+        </form>
+        </div>
+</body>
+</html>
